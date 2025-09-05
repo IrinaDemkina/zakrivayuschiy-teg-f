@@ -1,1 +1,42 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+    --font-main:'Inter-Variable', sans-serif;
+    --font-accent:'PressStart2P', cursive;
+    --font-weight-height:400;
+    --font-weight-normal:410;
+    --font-weight-heading:715;
+    --block-width:clamp(375px, 260.56px + 30.52vw, 700px);
+    --header-block-height:clamp(327px, 312.56px + 3.85vw, 368px);
+    --header-block-color:rgba(255, 255, 255);
+    --header-block-padding-vertical:clamp(122px, 119.18px + 0.75vw, 130px);
+    --header-block-padding-horizontal:clamp(16px, -21.50px + 10.00vw, 122.5px);
+    --border:2px solid rgba(0, 0, 0);
+    --borderr:2px solid rgba(0, 0, 0);
+    --card-color:rgba(255, 255, 255);
+    --card-text-width:clamp(351px, 236.56px + 30.52vw, 676px);
+    --watermark-color:rgba(0,0,0);
+    --acent-color:rgba(0,0,0);
+    --watermark-color-shadow:rgba(255, 255, 255, 1);
+    --footer-button-width: 306px;
+    --footer-button-direction:column;
+    --footer-button-picture-size:28px;
+    --dialog-width:341px;
+    --button-ok-width:261px;
+    --dialog-TextAndPicture-width:261px;
+    --text-color: white;
+    --background-color-button: white;
+    --animation-fill-color-first:rgba(0, 0, 0, 1);
+    --animation-fill-color:rgba(255, 0, 0, 1);
+}
+
+@media (width > 376px) {
+    :root {
+       --footer-button-width: 335px;
+       --footer-button-direction: row;
+       --footer-button-picture-size:21px;
+       --dialog-width:353px;
+       --button-ok-width:293px;
+       --dialog-TextAndPicture-width:293px;
+       --borderr:0px solid rgba(0, 0, 0);
+    }
+}
