@@ -60,7 +60,7 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  gap: 49px;
+  gap: 51px;
 }
 
 .card{
@@ -68,6 +68,7 @@
   border: var(--border);
   width: var(--block-width);
   display: grid;
+  width: var();
 }
 
 .card-title{
@@ -83,13 +84,15 @@
   overflow: hidden;
   border-top: var(--border);
   border-bottom: var(--border);
+  height: var(--picture-height);
+  
 }
 
 .watermark{
   position: absolute;
   justify-self: end;
-  margin-right: 25px;
-  margin-top: 25px;
+  right: 25px;
+  top: 25px;
   color: var(--watermark-color);
   font-family: var(--font-accent);
   font-weight: var(--font-weight-height);
@@ -117,9 +120,11 @@
 }
 
 .card-picture{
-  width: 100%;
-  object-position: center;
-  object-fit: cover;
+  position: absolute;
+  right: -8px;
+  width: auto;
+  height: 100%;
+  transform: scale(1.02);
 }
 
 .filter-saturate {
@@ -180,7 +185,6 @@ button{
 .like-icon{
   position: relative;
   background-color: transparent;
-  transition: border-color 0.3s ease;
   transition: transform 0.2s;
   transform-origin: center;
 }
@@ -189,27 +193,19 @@ button{
   opacity: 0;
 }
 
-.like-icon:focus {
-  outline: none;
-  border-color:var(--acent-color);
-}
-
-.like-icon:focus-visible {
-  border-color: var(--acent-color);
-}
-
 .card__icon-button { 
   padding: 0px;
   display: flex;
   align-items: center;
   justify-self: center;
   height: 100%;
+  border: 2px solid transparent;
 }
 
 .card__icon-button:focus-visible {
   outline: none;
   border-radius: 0;
-  border: var(--border);
+  border-color: var(--acent-color);
 }
 
 .button__text{
@@ -232,7 +228,6 @@ button{
   position: relative;
   width: 130px;
   height: 38px;
-  transition: box-shadow 0.3s ease;
 }
 
 .section-button-save {
@@ -336,6 +331,7 @@ dialog[open] {
 
 .button-standard{
   transition: box-shadow 0.3s ease;
+  transition: border-color 0.3s ease;
   overflow: hidden;
   position: relative;
   background-color: var(--background-color-button); 
