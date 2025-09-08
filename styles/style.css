@@ -82,7 +82,7 @@
   position: relative;
   overflow: hidden;
   border-top: var(--border);
-  border-bottom: var(--borderr);
+  border-bottom: var(--border);
 }
 
 .watermark{
@@ -105,6 +105,7 @@
   0 -1px 0 var(--watermark-color-shadow);
   mix-blend-mode: hard-light;
   z-index:2;
+  opacity: 0.5;
 }
 
 @supports (text-stroke: 1px var(--watermark-color-shadow)) or (-webkit-text-stroke: 1px var(--watermark-color-shadow)) {
@@ -166,6 +167,7 @@
 .card-botton-part{
   height: 38px;
   display: flex;
+  gap: 7px;
   justify-self: end;
   margin-bottom: 25px;
   margin-right: 25px;
@@ -178,7 +180,6 @@ button{
 .like-icon{
   position: relative;
   background-color: transparent;
-  border:2px solid transparent;
   transition: border-color 0.3s ease;
 }
 
@@ -195,6 +196,20 @@ button{
   border-color: var(--acent-color);
 }
 
+.card__icon-button { 
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  height: 100%;
+}
+
+.card__icon-button:focus-visible {
+  outline: none;
+  border-radius: 0;
+  border: var(--border);
+}
+
 .button__text{
   font-family: var(--font-accent);
   font-size: 14px;
@@ -205,7 +220,7 @@ button{
   z-index: 2; 
 }
 
-.button{
+.card__like-button{
   background-color: transparent;
   border: var(--border);
   box-shadow: none;
@@ -219,11 +234,11 @@ button{
   transition: box-shadow 0.3s ease;
 }
 
-.footer {
+.section-button-save {
   display: grid;
 }
 
-.footer-button {
+.button-save {
   margin: 0px auto 100px;
   background-color: rgba(255, 255, 255, 1);
   border: var(--border);
@@ -235,7 +250,7 @@ button{
   padding: 17px 18px;
 }
 
-.footer-button-picture {
+.button-save-picture {
   block-size: var(--footer-button-picture-size);
   inline-size: auto;
   mix-blend-mode: difference;
@@ -244,7 +259,7 @@ button{
   filter: brightness(0) invert(1);
 }
 
-.footer-button-text {
+.button-save-text {
   font-family: var(--font-accent);
   font-weight: var(--font-weight-height);
   font-size: 14px;
@@ -256,42 +271,34 @@ button{
 }
 
 dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.3);
-  backdrop-filter: blur(7px);
+  background-color: rgb(0 0 0 / 0.75);
 } 
 
-dialog {
+dialog[open] {
   padding: 0px;
   border: var(--border);
-  overflow: hidden;
+  width: var(--dialog-width);
 }
 
 .dialog {
-  margin: 0px;
-  padding: 30px 40px;
   display: grid;
   gap: 30px;
-  width: var(--dialog-width);
-  height: 191px;
-  
 }
 
-.dialog-TextAndPicture {
-  margin: 0px;
-  padding: 0px;
+.dialog-text-and-picture {
+  padding: 29px 40px 0px 35px;
   display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 12px;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
   width:var(--dialog-TextAndPicture-width);
-  height: 63px;
-  justify-content: flex-start;
   align-items: center;
 }
 
 .dialog-picture {
   width: 39px;
   height: 39px;
-  width: 100%;
+  margin: 0px;
+  padding: opx;
 }
 
 .dialog-text {
@@ -300,9 +307,17 @@ dialog {
   font-size: 14px;
   line-height: 150%;
   text-transform: uppercase;
+  min-width: 202px;
+}
+
+.dialog-button {
+  display: grid;
+  align-items: start;
+  justify-content: center;
 }
 
 .dialog-close {
+  margin-bottom: 30px;
   width: var(--button-ok-width);
   height: 38px;
   font-family: var(--font-accent);
@@ -325,16 +340,12 @@ dialog {
   background-color: var(--background-color-button); 
 }
 
-.button-standard.button:focus,
-.dialog-close.button-standard:focus,
-.footer-button.button-standard:focus {
+.button-black-bg:focus {
   outline: none;
   box-shadow: 2px 2px 0px var(--acent-color);
 }
 
-.button-standard.button::before,
-.dialog-close.button-standard::before,
-.footer-button.button-standard::before {
+.button-black-bg::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -348,9 +359,7 @@ dialog {
   z-index: 1;
 }
 
-.button-standard.button:hover:before,
-.dialog-close.button-standard:hover:before,
-.footer-button.button-standard:hover:before {
+.button-black-bg:hover:before {
   transform: translateX(0);
 }
 
