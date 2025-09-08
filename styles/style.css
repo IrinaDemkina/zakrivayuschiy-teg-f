@@ -181,6 +181,8 @@ button{
   position: relative;
   background-color: transparent;
   transition: border-color 0.3s ease;
+  transition: transform 0.2s;
+  transform-origin: center;
 }
 
 .sparks {
@@ -230,7 +232,6 @@ button{
   position: relative;
   width: 130px;
   height: 38px;
-  box-shadow: none;
   transition: box-shadow 0.3s ease;
 }
 
@@ -298,7 +299,7 @@ dialog[open] {
   width: 39px;
   height: 39px;
   margin: 0px;
-  padding: opx;
+  padding: 0px;
 }
 
 .dialog-text {
@@ -380,11 +381,6 @@ z-index: 2;
 
 .core {
   transition: fill 0.3s linear 0.03s;
-}
-
-.like-icon {
-  transition: transform 0.2s;
-  transform-origin: center;
 }
 
 .like-icon:hover .core {
